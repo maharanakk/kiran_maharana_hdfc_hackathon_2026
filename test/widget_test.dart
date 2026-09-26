@@ -7,12 +7,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kiran_maharana_hdfc_hackathon_2026/main.dart';
+import 'package:kiran_maharana_hdfc_hackathon_2026/features/init/presentation/page/init_page.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const HackathonApp());
+    await tester.pumpWidget(const InitialPage());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
