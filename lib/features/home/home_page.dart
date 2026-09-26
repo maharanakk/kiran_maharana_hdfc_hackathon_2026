@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
               border: Border.all(color: Colors.grey, width: 1.5),
               borderRadius: BorderRadius.circular(12),
             ),
@@ -33,9 +32,9 @@ class HomePage extends StatelessWidget {
                 Center(
                   child: SfCartesianChart(
                     legend: const Legend(isVisible: true),
-                    series: <CartesianSeries<_WealthData, String>>[
-                      SplineSeries<_WealthData, String>(
-                        name: 'Portfolio Value',
+                    series: <CartesianSeries<_WealthData, double>>[
+                      SplineSeries<_WealthData, double>(
+                        name: 'Asset Value',
                         dataSource: [
                           _WealthData('1M', 10.5),
                           _WealthData('2M', 11.2),
@@ -44,7 +43,7 @@ class HomePage extends StatelessWidget {
                           _WealthData('5M', 13.5),
                           _WealthData('6M', 14.2),
                         ],
-                        xValueMapper: (_WealthData data, _) => data.period,
+                        xValueMapper: (_WealthData data, _) => data.value,
                         yValueMapper: (_WealthData data, _) => data.value,
                         markerSettings: const MarkerSettings(isVisible: true),
                       ),
@@ -55,7 +54,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-           Container(
+           SizedBox(
             width: 200,
             height: 200,
             child: SfCircularChart(
@@ -66,7 +65,6 @@ class HomePage extends StatelessWidget {
                   explode: true,
                   explodeIndex: 0,
                   dataSource: [
-                    _PieData('Equity', 40, '40%'),
                     _PieData('Debt', 30, '30%'),
                     _PieData('Gold', 15, '15%'),
                     _PieData('Cash', 10, '10%'),
