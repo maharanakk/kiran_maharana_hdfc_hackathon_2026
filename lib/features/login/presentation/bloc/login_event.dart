@@ -1,8 +1,17 @@
 abstract class LoginEvent {}
 
-class LoginButtonPressed extends LoginEvent {
+class PhoneNumberChanged extends LoginEvent {
   final String phoneNumber;
+
+  PhoneNumberChanged(this.phoneNumber);
+}
+
+class PinChanged extends LoginEvent {
   final String pin;
 
-  LoginButtonPressed({required this.phoneNumber, required this.pin});
+  PinChanged(this.pin);
 }
+
+class LoginButtonPressed extends LoginEvent {}
+
+class ForgotPinPressed extends LoginEvent {}
